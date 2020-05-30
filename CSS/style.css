@@ -23,7 +23,7 @@ main {
 
 .header {
     padding-top: 41px;
-    margin-bottom: 38px;
+    padding-bottom: 38px;
 }
 
 .clearfix::after{
@@ -35,6 +35,7 @@ main {
 .list-nav-menu {
     float: right;
     font-family: 'Open Sans Bold', sans-serif;
+    font-weight: bold;
     font-size: 14px;
     line-height: 18px;
     letter-spacing: -0.3px;
@@ -69,6 +70,7 @@ main {
 
 .logotype::first-letter{
     color: #1abc9c;
+    font-weight: bold;
 }
 
 h2 {
@@ -77,6 +79,7 @@ h2 {
     letter-spacing: -1.2px;
     color: #ffffff;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .slider-text {
@@ -90,7 +93,7 @@ h2 {
 
 .slider {
     width: 100%;
-    height: 601px;
+    height: 600px;
     position: relative;
     background-image: linear-gradient(rgba(0, 0, 2, 0.5), rgba(0, 0, 2, 0.5)), url(../images/Background_layer.png);
     background-repeat: no-repeat;
@@ -99,7 +102,15 @@ h2 {
 
 .slider-information {
     position: absolute;
-    top: 257px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.slider-button {
+    position: absolute;
+    width: 1110px;
+    top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
@@ -130,14 +141,6 @@ h2 {
     float: right;
 }
 
-.slider-button {
-    position: absolute;
-    width: 1110px;
-    top: 265px;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
-
 button:hover {
     color: #ffffff;
     background-color: #1abc9c;
@@ -150,7 +153,7 @@ button:hover {
     padding-bottom: 98px;
 }
 
-.new-collection-wrapper {
+.new-collection {
     background-color: #e9f0fd;
 }
 
@@ -179,6 +182,7 @@ li {
 }
 
 .product-card {
+    width: 255px;
     float: left;
     position: relative;
 }
@@ -217,7 +221,6 @@ li {
     background-image: url(../icons/like.png);
     background-repeat: no-repeat;
     background-position: center;
-    float: right;
     cursor: pointer;
     background-color: rgba(50, 50, 50, 0.5);
 }
@@ -228,7 +231,6 @@ li {
     background-image: url(../icons/shuffle.png);
     background-repeat: no-repeat;
     background-position: center;
-    float: right;
     cursor: pointer;
     background-color: rgba(50, 50, 50, 0.5);
 }
@@ -239,35 +241,52 @@ li {
     background-image: url(../icons/clock.png);
     background-repeat: no-repeat;
     background-position: center;
-    float: right;
     cursor: pointer;
     background-color: rgba(50, 50, 50, 0.5);
 }
 
+.product-cart-item {
+    width: 166px;
+    height: 50px;
+    border: 1px solid #ffffff;
+    background-color: #323232;
+}
+
 .cart {
     display: block;
-    width: 50px;
-    height: 50px;
+    width: 49px;
+    height: 48px;
     overflow: auto; 
     margin: auto;
-    top: 0; 
     background-image: url(../icons/cart.png);
     background-repeat: no-repeat;
     background-position: 50% 50%;
     cursor: pointer;
-    position: absolute;
+    float: left;
+}
+
+.add-to-cart {
+    display: block;
+    width: 115px;
+    height: 48px; 
+    padding-top: 18px;
+    font-size: 14px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: -0.28px;
+    overflow: auto;
+    float: right;
 }
 
 .overlay {
     width: 255px;
     height: 282px;
     background-color: rgba(0, 0, 0, 0.5);
-    padding-top: 65px;
-    padding-left: 43px;
     border: 11px solid rgba(255, 255, 255, 0.5);
     background-clip: padding-box;
     position: absolute;
     top: 0;
+    left: 0;
     visibility: hidden;
     opacity: 0;
 }
@@ -278,48 +297,25 @@ li {
 }
 
 .reaction-items {
-    width: 166px;
-    height: 50px;
-    margin-bottom: 9px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
-.reaction-items :not(:last-child) {
+.product-item:nth-of-type(-n+2) {
     margin-right: 8px;
 }
 
 .product-item {
     font-size: 30px;
-    width: 50px;
-    height: 50px;
     border: 1px solid #ffffff; 
     text-align: center;
     float: left; 
     cursor: pointer;    
     padding-top: 9px;
+    margin-bottom: 7px;
 }
-
-.add-to-cart {
-    display: block; 
-    left: 58px;
-    right: auto;
-    top: 18px;
-    font-size: 14px;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: -0.28px;
-    position: absolute;
-    overflow: auto;
-}
-
-.product-cart-item {
-    width: 166px;
-    height: 50px;
-    border: 1px solid #ffffff;
-    background-color: #323232;
-    position: relative;
-}
-
-
 
 .product-item:hover, .product-cart-item:hover {
     background-color: #1abc9c;
@@ -343,5 +339,9 @@ footer {
 }
 
 .author-name {
+    color: #ffffff;
+}
+
+.author-name:hover {
     color: #46bfa9;
 }
